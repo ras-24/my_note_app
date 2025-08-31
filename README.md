@@ -46,3 +46,5 @@ cd note-app
 ```
 flutter run
 ```
+
+<img width="387" height="892" alt="image" src="https://github.com/user-attachments/assets/24190d67-f3ab-4e26-856c-c77daf03d058" />
