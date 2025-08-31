@@ -3,9 +3,7 @@
 A simple **Note Taking Application** built with Flutter.  
 This project demonstrates the basic usage of **Stateless Widgets**, **Stateful Widgets**, **Navigation**, and **Responsive Layouts** in Flutter.
 
----
-
-## ✨ Features
+## Features
 
 - **Home Page**
   - Displays a list of notes in a responsive `ListView`.
@@ -23,28 +21,25 @@ This project demonstrates the basic usage of **Stateless Widgets**, **Stateful W
   - Pre-fills the existing note in a `TextField`.
   - Allows updating and saving the note.
 
----
-
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Flutter** (Dart)
 - **Material Design Components**
 
----
-
-## 🚀 How to Run
+## How to Run
 
 1. Make sure you have [Flutter](https://flutter.dev/docs/get-started/install) installed.  
 2. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/note-app.git
+   ```
+   git clone https://github.com/ras-24/my_note_app.git
+   ```
 3. Navigate into the project directory:
-```
-cd note-app
-```
+   ```
+   cd my_note_app
+   ```
 4. Run the application:
-```
-flutter run
-```
-
+   ```
+   flutter run
+   ```
+## App Preview
 <img width="387" height="892" alt="image" src="https://github.com/user-attachments/assets/24190d67-f3ab-4e26-856c-c77daf03d058" />
