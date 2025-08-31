@@ -1,16 +1,48 @@
 # my_note_app
 
-A new Flutter project.
+A simple **Note Taking Application** built with Flutter.  
+This project demonstrates the basic usage of **Stateless Widgets**, **Stateful Widgets**, **Navigation**, and **Responsive Layouts** in Flutter.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Features
 
-A few resources to get you started if this is your first Flutter project:
+- **Home Page**
+  - Displays a list of notes in a responsive `ListView`.
+  - Swipe left to delete a note (using `Dismissible`).
+  - Tap a note to edit its content.
+  - Floating action button to add a new note.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Add Note Page**
+  - Built with a `StatefulWidget`.
+  - Contains a `TextField` to enter a new note.
+  - Saves and sends the note back to the home page.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Edit Note Page**
+  - Built with a `StatefulWidget`.
+  - Pre-fills the existing note in a `TextField`.
+  - Allows updating and saving the note.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Flutter** (Dart)
+- **Material Design Components**
+
+---
+
+## 🚀 How to Run
+
+1. Make sure you have [Flutter](https://flutter.dev/docs/get-started/install) installed.  
+2. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/note-app.git
+3. Navigate into the project directory:
+```
+cd note-app
+```
+4. Run the application:
+```
+flutter run
+```
