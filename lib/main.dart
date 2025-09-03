@@ -141,7 +141,15 @@ class _AddNotePageState extends State<AddNotePage> {
               icon: const Icon(Icons.save),
               label: const Text("Simpan"),
               onPressed: () {
-                Navigator.pop(context, _controller.text);
+                if (_controller.text.trim().isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Catatan tidak boleh kosong!"),
+                    ),
+                  );
+                } else {
+                  Navigator.pop(context, _controller.text);
+                }
               },
             ),
           ],
@@ -191,7 +199,15 @@ class _EditNotePageState extends State<EditNotePage> {
               icon: const Icon(Icons.save),
               label: const Text("Update"),
               onPressed: () {
-                Navigator.pop(context, _controller.text);
+                if (_controller.text.trim().isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Catatan tidak boleh kosong!"),
+                    ),
+                  );
+                } else {
+                  Navigator.pop(context, _controller.text);
+                }
               },
             ),
           ],
