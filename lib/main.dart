@@ -50,40 +50,16 @@ class _HomePageState extends State<HomePage> {
                     child: const Icon(Icons.delete, color: Colors.white),
                   ),
                   onDismissed: (direction) {
-                    setState(() {
-                      notes.removeAt(index);
-                    });
-                    ScaffoldMessenger.of(
-                      context,
-                    ).showSnackBar(SnackBar(content: Text("Catatan dihapus")));
+                    // This handles the swipe-to-delete
+                    _deleteNote(index);
                   },
-                  child: Card(
-                    child: ListTile(
-                      title: Text(note),
-                      onTap: () async {
-                        final updatedNote = await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                EditNotePage(note: note, index: index),
-                          ),
-                        );
-
-                        if (updatedNote != null && updatedNote is String) {
-                          setState(() {
-                            notes[index] = updatedNote;
-                          });
-                        }
-                      },
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete, color: Colors.red),
-                        onPressed: () {
-                          setState(() {
-                            notes.removeAt(index);
-                          });
-                        },
-                      ),
-                    ),
+                  child: NoteCard(
+                    note: note,
+                    onTap: () => _editNote(context, note, index),
+                    onDelete: () {
+                      // This handles the delete button press
+                      _deleteNote(index);
+                    },
                   ),
                 );
               },
@@ -96,13 +72,65 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (context) => const AddNotePage()),
           );
 
-          if (newNote != null && newNote is String && newNote.isNotEmpty) {
+          if (newNote != null && newNote is String) {
             setState(() {
               notes.add(newNote);
             });
           }
         },
         child: const Icon(Icons.add),
+      ),
+    );
+  }
+
+  void _editNote(BuildContext context, String note, int index) async {
+    final updatedNote = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EditNotePage(note: note, index: index),
+      ),
+    );
+
+    if (updatedNote != null && updatedNote is String) {
+      setState(() {
+        notes[index] = updatedNote;
+      });
+    }
+  }
+
+  void _deleteNote(int index) {
+    setState(() {
+      notes.removeAt(index);
+    });
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text("Catatan dihapus")));
+  }
+}
+
+// NoteCard
+class NoteCard extends StatelessWidget {
+  final String note;
+  final VoidCallback onTap;
+  final VoidCallback onDelete;
+
+  const NoteCard({
+    super.key,
+    required this.note,
+    required this.onTap,
+    required this.onDelete,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        title: Text(note),
+        onTap: onTap,
+        trailing: IconButton(
+          icon: const Icon(Icons.delete, color: Colors.red),
+          onPressed: onDelete,
+        ),
       ),
     );
   }
