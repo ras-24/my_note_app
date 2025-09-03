@@ -6,19 +6,21 @@ This project demonstrates the basic usage of **Stateless Widgets**, **Stateful W
 ## Features
 
 - **Home Page**
-  - Displays a list of notes in a responsive `ListView`.
-  - Swipe left to delete a note (using `Dismissible`).
+  - Displays a list of notes using a custom `NoteCard` (`StatelessWidget`).
+  - Swipe left or tap the delete icon to remove a note.
   - Tap a note to edit its content.
   - Floating action button to add a new note.
 
 - **Add Note Page**
   - Built with a `StatefulWidget`.
   - Contains a `TextField` to enter a new note.
+  - Includes validation to prevent submitting empty notes.
   - Saves and sends the note back to the home page.
 
 - **Edit Note Page**
   - Built with a `StatefulWidget`.
   - Pre-fills the existing note in a `TextField`.
+  - Includes validation to prevent saving an empty note.
   - Allows updating and saving the note.
 
 ## Technologies Used
