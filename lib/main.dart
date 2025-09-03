@@ -148,6 +148,13 @@ class _AddNotePageState extends State<AddNotePage> {
   final TextEditingController _controller = TextEditingController();
 
   @override
+  void dispose() {
+    // Bersihkan controller saat widget disposed.
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Tambah Catatan")),
@@ -204,6 +211,13 @@ class _EditNotePageState extends State<EditNotePage> {
   void initState() {
     super.initState();
     _controller = TextEditingController(text: widget.note);
+  }
+
+  @override
+  void dispose() {
+    // Bersihkan controller saat widget disposed.
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
